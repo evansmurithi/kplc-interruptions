@@ -120,8 +120,12 @@ def scrape_interruption_pdf_files(url):
 
     # parse content
     soup = BeautifulSoup(content, "html.parser")
+    # most of the download links are found inside anchor tags with docicon
+    # class.
     a_tags = soup.find(
         "div", class_="attachments").find_all("a", class_="docicon")
+    # some of the download links especially the one marked as archives is
+    # inside anchor tags with download class.
     a_tags.extend(soup.find(
         "div", class_="genericintro").find_all("a", class_="download"))
 
