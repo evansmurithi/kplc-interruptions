@@ -27,6 +27,8 @@ setup(
         "Programming Language :: Python :: 3 :: Only",
     ],
     install_requires=[
+        "environs[django]==4.2.0",
+        "psycopg2-binary==2.8.3",
         "requests==2.22.0",
         "beautifulsoup4==4.7.1",
         "pdftotext==2.1.1",
