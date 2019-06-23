@@ -30,6 +30,7 @@ setup(
         "requests==2.22.0",
         "beautifulsoup4==4.7.1",
         "pdftotext==2.1.1",
+        "django==2.2",
     ],
     scripts=[],
     include_package_data=True,
