@@ -56,3 +56,15 @@ class InterruptionPdf(AbstractBase):
     @property
     def pdf_filename(self):
         return os.path.basename(self.pdf_file.name)
+
+
+class InterruptionPdfText(AbstractBase):
+    """
+    Store the extracted text from PDF.
+    """
+    pdf = models.OneToOneField(
+        InterruptionPdf, related_name="pdf_text", on_delete=models.PROTECT)
+    pdf_text = models.TextField()
+
+    def __str__(self):
+        return str(self.pdf)
