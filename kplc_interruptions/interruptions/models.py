@@ -28,7 +28,7 @@ def interruption_upload_path(instance, filename):
     Directory to upload interruption PDF files.
     """
     return "interruptions/{interruption_id}/{filename}".format(
-        instance.interruption.id, filename)
+        interruption_id=instance.interruption.id, filename=filename)
 
 
 class InterruptionPdf(AbstractBase):
@@ -41,7 +41,7 @@ class InterruptionPdf(AbstractBase):
     pdf_file = models.FileField(
         upload_to=interruption_upload_path,
         help_text="PDF downloaded from KPLC's website")
-    pdf_name = models.CharField(
+    pdf_link_name = models.CharField(
         max_length=255, help_text="Name displayed of the PDF")
     pdf_link = models.URLField(
         max_length=255, help_text="URL to download the PDF")
