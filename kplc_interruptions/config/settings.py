@@ -46,6 +46,7 @@ EXTERNAL_APPS = [
 
 LOCAL_APPS = [
     'kplc_interruptions.interruptions.apps.InterruptionsConfig',
+    'kplc_interruptions.notifications.apps.NotificationsConfig',
 ]
 
 INSTALLED_APPS = EXTERNAL_APPS + LOCAL_APPS
