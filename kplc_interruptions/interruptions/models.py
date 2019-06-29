@@ -3,6 +3,7 @@ import os
 from django.db import models
 
 from kplc_interruptions.common.models import AbstractBase
+from kplc_interruptions.interruptions.documents import InterruptionPdfTextDoc
 
 
 class Interruption(AbstractBase):
@@ -68,3 +69,13 @@ class InterruptionPdfText(AbstractBase):
 
     def __str__(self):
         return str(self.pdf)
+
+    def index(self):
+        doc = InterruptionPdfTextDoc(
+            meta={"id": self.id}, pdf_text=self.pdf_text)
+        doc.save()
+        return doc.to_dict(include_meta=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.index()
