@@ -126,3 +126,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Elastic search settings
+ES_SETTINGS = {
+    'ALIAS': env.str("ES_ALIAS", default="kplc_interruptions"),
+    'HOST': env("ES_HOST", "localhost"),
+    'PORT': env.int("ES_PORT", 9200),
+}

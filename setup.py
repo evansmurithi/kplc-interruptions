@@ -34,6 +34,7 @@ setup(
         "beautifulsoup4==4.7.1",
         "pdftotext==2.1.1",
         "django==2.2",
+        "elasticsearch-dsl==7.0.0",
     ],
     scripts=[],
     include_package_data=True,
