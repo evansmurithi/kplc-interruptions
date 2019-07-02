@@ -33,7 +33,7 @@ setup(
         "requests-cache==0.5.0",
         "beautifulsoup4==4.7.1",
         "pdftotext==2.1.1",
-        "django==2.2",
+        "django>=2.2.2,<3.0",
         "elasticsearch-dsl==7.0.0",
     ],
     scripts=[],
