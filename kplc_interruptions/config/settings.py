@@ -28,9 +28,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dyd!t0&)45q!h_1+jn-ra)^8jgu+4x&sbkx*(sp_7u-t$j^ctm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DEBUG", default=False)
+DEBUG = env.bool("DEBUG", False)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[".localhost"])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", [".localhost"])
 
 
 # Application definition
@@ -130,7 +130,19 @@ STATIC_URL = '/static/'
 
 # Elastic search settings
 ES_SETTINGS = {
-    'ALIAS': env.str("ES_ALIAS", default="kplc_interruptions"),
+    'ALIAS': env.str("ES_ALIAS", "kplc_interruptions"),
     'HOST': env("ES_HOST", "localhost"),
     'PORT': env.int("ES_PORT", 9200),
 }
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = env('EMAIL_HOST', "localhost")
+EMAIL_PORT = env.int('EMAIL_PORT', 25)
+EMAIL_HOST_USER = env.str('EMAIL_HOST_USER', "")
+EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD', "")
+EMAIL_USE_TLS = True
+
+OUTGOING_EMAIL_SOURCE = "KPLC Interruptions <{}>".format(
+    env.str('OUTGOING_EMAIL_SOURCE', ""))
