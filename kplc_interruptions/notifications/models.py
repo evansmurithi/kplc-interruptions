@@ -26,6 +26,7 @@ class NotificationLog(AbstractBase):
     Logs success/error messages for notifications sent out to accounts.
     """
     LOG_STATUS_CHOICES = (
+        ("PENDING", "Pending"),
         ("SUCCESS", "Success"),
         ("FAILURE", "Failure"),
     )
